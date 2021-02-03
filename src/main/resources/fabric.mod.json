@@ -3,8 +3,8 @@
   "id": "make-every-biome-spawnable-lol",
   "version": "${version}",
 
-  "name": "Make Every Biome Spawnable Makes Every Biome Spawnable",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Make Every Biome Spawnable",
+  "description": "Makes Every Biome Spawnable",
   "authors": [
     "Sam"
   ],
@@ -19,13 +19,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "esb.Mod"
+      "esb.MakeEveryBiomeSpawnable"
     ]
   },
-  "mixins": [
-    "make-every-biome-spawnable-lol.mixins.json"
-  ],
-
+  "mixins": [],
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",

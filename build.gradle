@@ -1,10 +1,7 @@
 plugins {
-	id 'fabric-loom' version '0.5-SNAPSHOT'
-	id 'maven-publish'
+	id "fabric-loom" version "0.5-SNAPSHOT"
+	id "maven-publish"
 }
-
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
 
 archivesBaseName = project.archives_base_name
 version = project.mod_version
@@ -18,9 +15,6 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
-	// You may need to force-disable transitiveness on them.
 }
 
 processResources {
@@ -44,6 +38,9 @@ tasks.withType(JavaCompile).configureEach {
 	def targetVersion = 8
 	if (JavaVersion.current().isJava9Compatible()) {
 		 it.options.release = targetVersion
+	} else {
+		sourceCompatibility = JavaVersion.toVersion(targetVersion)
+		targetCompatibility = JavaVersion.toVersion(targetVersion)
 	}
 }
 
